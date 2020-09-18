@@ -20,3 +20,5 @@ app.use('/graphql', graphqlHTTP({
 app.listen(4000);
 
 console.log('Running GraphQL + REST API Gateway at http://localhost:4000/graphql');
+
+//https://github.com/fireproofsocks/graphql-example/blob/master/index.js
