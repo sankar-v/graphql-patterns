@@ -1,1 +1,0 @@
-https://rollout.io/blog/graphql-as-an-api-gateway-to-micro-services/
