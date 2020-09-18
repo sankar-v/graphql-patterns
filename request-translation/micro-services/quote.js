@@ -1,20 +1,22 @@
 /**
  * microservice "Quote"
  */
-var { fetch } = require( 'universal-fetch');
+import fetch from 'universal-fetch'
+
+export const
 const getQuote = () => {
-        const url = 'http://quotes.rest/qod.json?category=inspire'
-        return fetch(url)
-            .then(response => {
-                return response.json()
-            })
-            .then(json => {
-                return transform(json)
-            })
-            .catch(err => {
-                console.trace(err)
-            })
-    }
+    const url = 'http://quotes.rest/qod.json?category=inspire'
+    return fetch(url)
+        .then(response => {
+            return response.json()
+        })
+        .then(json => {
+            return transform(json)
+        })
+        .catch(err => {
+            console.trace(err)
+        })
+}
 
 // Transform the raw microservice output into 
 // GraphQL types
@@ -31,5 +33,3 @@ const transform = (json) => {
         date: quote.date
     }
 }
-
-module.exports = {getQuote}

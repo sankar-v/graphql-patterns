@@ -1,8 +1,6 @@
-var express = require('express');
-var { graphqlHTTP } = require('express-graphql');
-var { buildSchema } = require('graphql');
-
-const { rootSchema } = require('./app');
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
+import rootSchema from './app';
 
 const users = require('./rest/users');
 const quotes = require('./rest/quotes');
@@ -12,7 +10,6 @@ const app = express();
 // REST endpoints:
 app.use('/quotes', quotes);
 app.use('/users', users);
-
 
 // GraphQL endpoint:
 app.use('/graphql', graphqlHTTP({

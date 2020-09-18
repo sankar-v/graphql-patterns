@@ -1,18 +1,21 @@
-var {
-    GraphQLObjectType,
-    GraphQLInputObjectType,
-    GraphQLNonNull,
-    GraphQLInterfaceType,
-    GraphQLUnionType,
-    GraphQLInt,
-    GraphQLList,
-    GraphQLString
-  } = require( 'graphql/type');
-  const { moment } = require('moment');
-  const {_} = require('lodash');
+import {
+  GraphQLObjectType,
+  GraphQLInputObjectType,
+  GraphQLNonNull,
+  GraphQLInterfaceType,
+  GraphQLUnionType,
+  GraphQLInt,
+  GraphQLList,
+  GraphQLString
+} from 'graphql/type';
+
+import moment from 'moment';
+import _ from 'lodash';
+
+import { UserType } from './users';
+const database = require('./database.json');
+
   
-  const  UserType  = require('./users');
-  const database = require('./database.json');
   const users = database.users;
   const agendas = database.agenda;
   
@@ -119,7 +122,7 @@ var {
   /**
    * Input type used as a filter to all agenda entries
    */
-  const AgendaFilter = new GraphQLInputObjectType({
+  export const AgendaFilter = new GraphQLInputObjectType({
     name: 'AgendaFilterType',
     fields: () => ({
       startDate: {
@@ -140,7 +143,7 @@ var {
   /**
    * Union used to represent all agenda types
    */
-  const AgendaUnion = new GraphQLUnionType({
+  export const AgendaUnion = new GraphQLUnionType({
     name: 'Agenda',
     types: [AgendaMeetingType, AgendaEventType],
     resolveType: obj => obj.appointmentType === 'meeting' ? AgendaMeetingType : AgendaEventType,
@@ -153,7 +156,7 @@ var {
    * @param filter
    * @returns {*|{name, type}|Array|Array.<T>}
    */
- const agendaFilterResolve = (root, { userId = null, filter = {} }) => {
+ export const agendaFilterResolve = (root, { userId = null, filter = {} }) => {
     let agenda = userId ? agendas.filter(a => a.userId === userId) : agendas;
   
     if (filter.startDate) {
@@ -192,4 +195,4 @@ var {
     resolve: agendaFilterResolve,
   };
   
-  module.exports = {agendaQuery, AgendaFilter, agendaFilterResolve, AgendaUnion, AgendaMeetingType, AgendaEventType};
+  export default agendaQuery;

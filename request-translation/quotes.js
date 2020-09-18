@@ -1,15 +1,15 @@
-var {
+import {
     GraphQLObjectType,
     GraphQLNonNull,
     GraphQLString
-} = require('graphql/type');
+} from 'graphql/type';
 
-var { getQuote } = require('./micro-services/quote');
+import { getQuote } from './micro-services/quote'
 
 /**
  * GraphQL Quote type
  */
-const QuoteType = new GraphQLObjectType({
+export const QuoteType = new GraphQLObjectType({
     name: 'Quote',
     description: 'Quote of the day from API service',
     fields: () => ({
@@ -32,7 +32,7 @@ const QuoteType = new GraphQLObjectType({
     })
 });
 
-module.exports =  {
+export default {
     type: QuoteType,
     resolve: getQuote
 }

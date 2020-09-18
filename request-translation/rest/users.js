@@ -1,8 +1,9 @@
+//GET /users/*
 const app = require('express');
 const router = app.Router();
-var rootSchema = require('../app');
+import rootSchema from '../app';
 
-var {graphql} = require('graphql')
+import { graphql } from 'graphql'
 
 const query = (q, vars) => {
     return graphql(rootSchema, q, null, null, vars)

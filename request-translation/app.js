@@ -1,11 +1,11 @@
-var {
+import {
     GraphQLObjectType,
     GraphQLSchema,
-} = require('graphql/type');
+} from 'graphql/type';
 
-var  UserQuery = require('./users')
-var QuoteQuery =  require('./quotes')
-var agenda =  require('./agenda-interface')
+import userQuery from './users';
+import agendaQuery from './agenda-interface';
+import quoteQuery from './quote';
 
 const query = new GraphQLObjectType({
     name: 'RootQueryType',
@@ -15,6 +15,6 @@ const query = new GraphQLObjectType({
         quote: QuoteQuery
     },
 });
-module.export = new GraphQLSchema({
+export default new GraphQLSchema({
     query,
 });
