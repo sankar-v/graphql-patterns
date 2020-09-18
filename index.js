@@ -1,9 +1,9 @@
 import express from 'express';
-import graphqlHTTP from 'express-graphql';
-import rootSchema from './app';
+import {graphqlHTTP} from 'express-graphql';
+import rootSchema from './request-translation/app';
 
-const users = require('./rest/users');
-const quotes = require('./rest/quotes');
+const users = require('./request-translation/rest/users');
+const quotes = require('./request-translation/rest/quotes');
 
 const app = express();
 

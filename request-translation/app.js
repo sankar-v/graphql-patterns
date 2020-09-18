@@ -5,14 +5,14 @@ import {
 
 import userQuery from './users';
 import agendaQuery from './agenda-interface';
-import quoteQuery from './quote';
+import quoteQuery from './quotes';
 
 const query = new GraphQLObjectType({
     name: 'RootQueryType',
     fields:{
-        users: UserQuery,
-        agenda: agenda,
-        quote: QuoteQuery
+        users: userQuery,
+        agenda: agendaQuery,
+        quote: quoteQuery
     },
 });
 export default new GraphQLSchema({

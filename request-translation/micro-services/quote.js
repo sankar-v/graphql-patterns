@@ -3,8 +3,7 @@
  */
 import fetch from 'universal-fetch'
 
-export const
-const getQuote = () => {
+export const getQuote = () => {
     const url = 'http://quotes.rest/qod.json?category=inspire'
     return fetch(url)
         .then(response => {

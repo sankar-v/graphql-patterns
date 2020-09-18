@@ -26,7 +26,7 @@ export const UserType = new GraphQLObjectType({
       description: 'User name',
     },
     agenda: {
-      type: new GraphQLList(AgendaUnion),
+      type: new GraphQLList(AgendaType),
       description: 'User Agenda',
       args: {
         filter: {
