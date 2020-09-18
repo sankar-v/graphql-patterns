@@ -1,0 +1,39 @@
+{
+  "name": "graphql-patterns",
+  "version": "1.0.0",
+  "description": "graphql patterns to solve different problems ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js --exec babel-node --presets latest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sankar-v/graphql-patterns.git"
+  },
+  "keywords": [
+    "graphql",
+    "REST",
+    "NodeJS",
+    "Express"
+  ],
+  "author": "Sankar V",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sankar-v/graphql-patterns/issues"
+  },
+  "homepage": "https://github.com/sankar-v/graphql-patterns#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
+    "lodash": "^4.17.20",
+    "moment": "^2.28.0",
+    "universal-fetch": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "nodemon": "^2.0.4"
+  }
+}
